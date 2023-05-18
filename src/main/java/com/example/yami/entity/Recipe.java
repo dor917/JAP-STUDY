@@ -1,6 +1,7 @@
 package com.example.yami.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "RCP_BASE")
@@ -8,12 +9,21 @@ public class Recipe extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "RCP_NO")
-    private Double rcp_no;
+    private Double rcpNo;
+
+    @OneToMany
+    @JoinColumn(name = "RCP_NO")
+    private List<MbrRcpLike> mbrRcpLikes;
+
+    @OneToMany
+    @JoinColumn(name = "RCP_NO")
+    private List<RcpStuff> rcpStuffs;
+
 
     @Column(name = "RCP_NAME")
-    private Double rcp_name;
+    private Double rcpName;
 
     @Column(name = "RCP_DESCRIPTION")
-    private Double rcp_description;
+    private Double rcpDescription;
 
 }

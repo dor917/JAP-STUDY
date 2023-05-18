@@ -1,45 +1,60 @@
 package com.example.yami.entity;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "MBR_BASE")
 public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MBR_NO")
-    private Double mbr_no;
+    private Double mbrNo;
+
+    @OneToMany
+    @JoinColumn(name = "MBR_NO")
+    private List<MbrStuff> mbrStuffs;
+
+    @OneToMany
+    @JoinColumn(name = "MBR_NO")
+    private List<MbrRcpLike> mbrRcpLikes;
 
     @Column(name = "LOGIN_ID")
-    private String login_id;
+    private String loginId;
+
     @Column(name = "NAME")
     private String name;
 
     @Column(name = "MBR_PW")
-    private String mbr_pw;
+    private String mbrPw;
 
     @Column(name = "MBR_PHONE")
-    private String mbr_phone;
+    private String mbrPhone;
 
     @Column(name = "MBR_EMAIL")
-    private String mbr_email;
+    private String mbrEmail;
 
     @Column(name = "MBR_BIRTH")
-    private String mbr_birth;
+    private String mbrBirth;
 
     @Column(name = "MBR_GRADE_CD")
-    private String mbr_grade_cd;
+    private String mbrGradeCd;
 
     @Column(name = "JOIN_CD")
-    private String join_cd;
+    private String joinCd;
 
     @Column(name = "CNCL_DT")
-    private String cncl_dt;
+    private String cnclDt;
 
     @Column(name = "CNCL_CD")
-    private String cncl_cd;
+    private String cnclCd;
 
 
 

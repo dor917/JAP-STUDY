@@ -1,38 +1,53 @@
 package com.example.yami.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "STUFF_BASE")
 public class Stuff extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "STUFF_NO")
-    private Double stuff_no;
+    private Double stuffNo;
+
+    @OneToMany
+    @JoinColumn(name = "STUFF_NO")
+    private List<MbrStuff> mbrStuffs;
+
+    @OneToMany
+    @JoinColumn(name = "STUFF_NO")
+    private List<RcpStuff> rcpStuffs;
+
 
     @Column(name = "STUFF_NAME")
-    private Double stuff_name;
+    private Double stuffName;
 
     @Column(name = "STUFF_DESC")
-    private Double stuff_desc;
+    private Double stuffDesc;
 
     @Column(name = "USE_YN")
-    private Double use_yn;
+    private Double useYn;
 
     @Column(name = "INFO_VAL1")
-    private Double info_val1;
+    private Double infoVal1;
 
     @Column(name = "INFO_VAL2")
-    private Double info_val2;
+    private Double infoVal2;
 
     @Column(name = "INFO_VAL3")
-    private Double info_val3;
+    private Double infoVal3;
 
     @Column(name = "IMG_PATH")
-    private Double img_path;
+    private Double imgPath;
 
     @Column(name = "IMG_FILENAME")
-    private Double img_filename;
+    private Double imgFilename;
 
 
 }

@@ -3,6 +3,7 @@ package com.example.yami.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
@@ -10,12 +11,12 @@ import java.time.LocalDateTime;
 @Setter
 @MappedSuperclass
 public abstract class BaseEntity {
-
-    private String createdBy;
-
-    private LocalDateTime createdDate;
-
-    private String lastModifiedBy;
-
-    private LocalDateTime lastModifiedDate;
+    @Column(name = "SYS_REG_NM")
+    private String sysRegNm;
+    @Column(name = "SYS_REG_TIME")
+    private LocalDateTime sysRegTime;
+    @Column(name = "SYS_MODI_NM")
+    private String sysModiNm;
+    @Column(name = "SYS_MODI_TIME")
+    private LocalDateTime sysModiTime;
 }
